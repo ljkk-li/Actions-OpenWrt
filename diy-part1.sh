@@ -15,7 +15,5 @@
 
 # Add a feed source
 #sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
-#Remove packages
-rm -rf package/lean/luci-theme-argon
-git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git 
-#git clone https://github.com/281677160/openwrt-package package/danshui
+
+git clone https://github.com/281677160/openwrt-package package/danshui
