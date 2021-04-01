@@ -18,4 +18,4 @@
 #Remove packages
 rm -rf package/lean/luci-theme-argon
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon.git 
-git clone https://github.com/281677160/openwrt-package package/danshui
+#git clone https://github.com/281677160/openwrt-package package/danshui
