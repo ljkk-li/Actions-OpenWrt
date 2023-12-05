@@ -163,50 +163,23 @@ jobs:
         echo "FIRMWARE=$PWD" >> $GITHUB_ENV
         echo "status=success" >> $GITHUB_OUTPUT
 
-    - name: Upload firmware directory
-      uses: actions/upload-artifact@main
-      if: steps.organize.outputs.status == 'success' && !cancelled()
+    - name: 上传固件在 github Artifacts
+      if: steps.compile.outcome == 'success' && env.UPLOAD_FIRMWARE == 'true'
+      uses: actions/upload-artifact@v3
       with:
-        name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
-        path: ${{ env.FIRMWARE }}
-
-    - name: Upload firmware to cowtransfer
-      id: cowtransfer
-      if: steps.organize.outputs.status == 'success' && env.UPLOAD_COWTRANSFER == 'true' && !cancelled()
-      run: |
-        curl -fsSL git.io/file-transfer | sh
-        ./transfer cow --block 2621440 -s -p 64 --no-progress ${FIRMWARE} 2>&1 | tee cowtransfer.log
-        echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
-        echo "url=$(cat cowtransfer.log | grep https | cut -f3 -d" ")" >> $GITHUB_OUTPUT
-
-    - name: Upload firmware to WeTransfer
-      id: wetransfer
-      if: steps.organize.outputs.status == 'success' && env.UPLOAD_WETRANSFER == 'true' && !cancelled()
-      run: |
-        curl -fsSL git.io/file-transfer | sh
-        ./transfer wet -s -p 16 --no-progress ${FIRMWARE} 2>&1 | tee wetransfer.log
-        echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
-        echo "url=$(cat wetransfer.log | grep https | cut -f3 -d" ")" >> $GITHUB_OUTPUT
-
-    - name: Generate release tag
-      id: tag
-      if: env.UPLOAD_RELEASE == 'true' && !cancelled()
-      run: |
-        echo "release_tag=$(date +"%Y.%m.%d-%H%M")" >> $GITHUB_OUTPUT
-        touch release.txt
-        [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
-        [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
-        echo "status=success" >> $GITHUB_OUTPUT
-
-    - name: Upload firmware to release
-      uses: softprops/action-gh-release@v1
-      if: steps.tag.outputs.status == 'success' && !cancelled()
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        name: ${{ env.SOURCE }}-${{ env.LUCI_EDITION }}-${{ env.TARGET_PROFILE }}-firmware-${{ env.Firmware_Date }}
+        path: ${{ env.FIRMWARE_PATH }}
+    
+    - name: 发布固件
+      if: steps.compile.outcome == 'success' && env.UPLOAD_RELEASE == 'true' && env.ING_FIRMWAR == 'true' && env.REPO_TOKEN
+      uses: ncipollo/release-action@main
       with:
-        tag_name: ${{ steps.tag.outputs.release_tag }}
-        body_path: release.txt
-        files: ${{ env.FIRMWARE }}/*
+        name: ${{ env.SOURCE }}-${{ env.PROMPT_TING }}
+        tag: a${{ env.date }}
+        token: ${{ secrets.REPO_TOKEN }}
+        allowUpdates: true
+        body: ${{ env.Tongzhi_Date }}
+        artifacts: "${{ env.FIRMWARE_PATH }}/*"
 
     - name: Delete workflow runs
       uses: ljkk-li/delete-workflow-runs@main
