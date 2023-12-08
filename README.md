@@ -1,5 +1,16 @@
 **English** | [中文](https://p3terx.com/archives/build-openwrt-with-github-actions.html)
 
+插件：
+
+![Snipaste_2023-12-08_13-41-03](https://github.com/ljkk-li/Actions-OpenWrt/assets/51225555/bf4c7db7-a0d7-4a0c-bf5c-a8dac21f4fc8)
+
+![Snipaste_2023-12-08_13-41-16](https://github.com/ljkk-li/Actions-OpenWrt/assets/51225555/184c89f5-ceb5-4ac9-90a5-8139bada9cb2)
+
+![Snipaste_2023-12-08_13-41-25](https://github.com/ljkk-li/Actions-OpenWrt/assets/51225555/c512e258-3e90-41e8-85e2-a834b69198a5)
+
+
+
+
 # Actions-OpenWrt
 
 [![LICENSE](https://img.shields.io/github/license/mashape/apistatus.svg?style=flat-square&label=LICENSE)](https://github.com/P3TERX/Actions-OpenWrt/blob/master/LICENSE)
