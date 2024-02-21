@@ -117,18 +117,16 @@ jobs:
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
-        sudo rm -rf /etc/apt/sources.list.d/* /usr/local/lib/android /opt/ghc /usr/share/dotnet /usr/local/graalvm /usr/local/.ghcup \
-        /usr/local/share/powershell /usr/local/share/chromium /usr/local/lib/node_modules
-        sudo timedatectl set-timezone "$TZ"
+        sudo chown $USER:$GROUPS /workdir
         sudo apt-get install -y libfuse-dev
-        sudo chown $USER:$GROUPS $GITHUB_WORKSPACE
         
 
     - name: Clone source code
       working-directory: ./
       run: |
-        git clone --depth=1 $REPO_URL -b $REPO_BRANCH openwrt
-
+        df -hT $PWD
+        git clone $REPO_URL -b $REPO_BRANCH openwrt
+        ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
     - name: Load custom feeds
       run: |
         [ -e $FEEDS_CONF ] && mv $FEEDS_CONF openwrt/feeds.conf.default
