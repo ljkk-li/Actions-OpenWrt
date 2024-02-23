@@ -7,9 +7,7 @@
 
 #插件：
 
-![Snipaste_2023-12-08_13-41-03](https://github.com/ljkk-li/Actions-OpenWrt/assets/51225555/32cc5651-1b9b-400d-a081-0a1648f59f48)
-
-![Snipaste_2023-12-08_13-41-16](https://github.com/ljkk-li/Actions-OpenWrt/assets/51225555/a38f8ef5-bfdd-4fdd-b59f-4943ba69f6f1)
+![Snipaste_2023-12-08_13-41-03](https://github.com/ljkk-li/Actions-OpenWrt/assets/51225555/32cc5651-1b9b-400d-a081-0a1648f59f48)    ![Snipaste_2023-12-08_13-41-16](https://github.com/ljkk-li/Actions-OpenWrt/assets/51225555/a38f8ef5-bfdd-4fdd-b59f-4943ba69f6f1)
 
 ![Snipaste_2023-12-08_13-41-25](https://github.com/ljkk-li/Actions-OpenWrt/assets/51225555/bd89e9ec-9714-4d74-9b52-c1fc510e5806)
 
