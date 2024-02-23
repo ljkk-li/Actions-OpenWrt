@@ -1,8 +1,7 @@
-**English** | [中文](https://p3terx.com/archives/build-openwrt-with-github-actions.html)
 
 
 
-2024年更新编译主程序
+2024.02.22更新编译主程序(扩容）
 
 
 
