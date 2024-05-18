@@ -117,7 +117,6 @@ jobs:
         sudo -E apt-get -qq clean
         sudo timedatectl set-timezone "$TZ"
         sudo chown $USER:$GROUPS $GITHUB_WORKSPACE
-        sudo apt-get install -y libfuse-dev
         
 
     - name: Clone source code
