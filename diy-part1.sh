@@ -22,8 +22,8 @@
 #git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
 #svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
 # 增加个性签名
-#sed -i "s?DESCRIPTION=.*?DESCRIPTION='OpenWrt'?g" "${ZZZ_PATH}"
-sed -i "s?DESCRIPTION=.*?DESCRIPTION='OpenWrt '\" >> /etc/openwrt_release?g" "${ZZZ_PATH}"
+sed -i "s?DESCRIPTION=.*?DESCRIPTION='OpenWrt'?g" "${ZZZ_PATH}"
+#sed -i "s?DESCRIPTION=.*?DESCRIPTION='OpenWrt '\" >> /etc/openwrt_release?g" "${ZZZ_PATH}"
 sed -i "s?OpenWrt ?Dalin $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt ?g" "${ZZZ_PATH}"
 
 
