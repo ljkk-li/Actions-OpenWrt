@@ -24,7 +24,5 @@
 # 增加个性签名
 sed -i "s?DESCRIPTION=.*?DESCRIPTION='OpenWrt '\" >> /etc/openwrt_release?g" "${ZZZ_PATH}"
 sed -i "s?OpenWrt ?Dalin $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt ?g" "${ZZZ_PATH}"
-# 增加主题
-git clone https://github.com/gngpp/luci-theme-design.git  package/luci-theme-design
 
 
