@@ -20,11 +20,6 @@ git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt -b packages
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.99.2/g' package/base-files/files/bin/config_generate
-# 增加个性签名
-#sed -i "s?DESCRIPTION=.*?DESCRIPTION='OpenWrt'?g" "${ZZZ_PATH}"
-sed -i "s?DESCRIPTION=.*?DESCRIPTION='OpenWrt '\" >> /etc/openwrt_release?g" "${ZZZ_PATH}"
-sed -i "s?OpenWrt ?Dalin $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt ?g" "${ZZZ_PATH}"
-
 
 #readd cpufreq for aarch64
 #sed -i 's/LUCI_DEPENDS.*/LUCI_DEPENDS:=\@\(arm\|\|aarch64\)/g' package/lean/luci-app-cpufreq/Makefile
