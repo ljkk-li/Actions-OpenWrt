@@ -13,6 +13,7 @@
 #移除不用软件包
 rm -rf feeds/packages/lang/golang
 rm -rf feeds/packages/lang/node
+rm -rf package/lean/luci-theme-argon
 
 #添加额外软件包
 git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
