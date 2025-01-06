@@ -21,6 +21,4 @@
 #rm -rf package/lean/luci-theme-argon  
 #git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
 #svn co https://github.com/vernesong/OpenClash/trunk/luci-app-openclash package/luci-app-openclash
-#增加主题
-svn co https://github.com/shidahuilang/openwrt-package/branches/Theme2/luci-theme-design package/luci-theme-design
 
