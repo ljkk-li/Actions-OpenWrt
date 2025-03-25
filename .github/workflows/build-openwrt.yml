@@ -32,8 +32,6 @@ env:
   UPLOAD_WETRANSFER: false
   UPLOAD_RELEASE: false
   TZ: Asia/Shanghai
-  FILE_NAME: J4125
-  PRODUCT_NAME: J4125
 
 jobs:
   build:
@@ -240,20 +238,6 @@ jobs:
         body_path: release.txt
         files: ${{ env.FIRMWARE }}/*
 
-    - name: Create release
-      id: release
-      uses: ncipollo/release-action@v1
-      with:
-        name: R${{ env.DATE }} for ${{ env.PRODUCT_NAME }}
-        allowUpdates: true
-        tag: ${{ env.FILE_NAME }}
-        commit: master
-        token: ${{ secrets.RELEASES_TOKEN }}
-        body: |
-          默认IP： 192.168.99.2 默认密码： password
-          当前使用版本:【编译前的最后一次[➦主源码](https://github.com/coolsnowwolf/lede)更新记录】
-          ${{ env.useVersionInfo }}
-        artifacts: ${{ env.FIRMWARE }}/*
 
     - name: Delete workflow runs
       uses: ljkk-li/delete-workflow-runs@main
