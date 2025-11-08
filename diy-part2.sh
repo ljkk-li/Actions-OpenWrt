@@ -15,11 +15,16 @@ rm -rf feeds/packages/lang/golang
 rm -rf feeds/packages/lang/node
 rm -rf feeds/luci/themes/luci-theme-argon
 
+
 #添加额外软件包
 git clone https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/lang/golang
 git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt -b packages-24.10 feeds/packages/lang/node 
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
-svn co https://github.com/fw876/helloworld/trunk/shadowsocks-libev feeds/small/shadowsocks-libev
+# 克隆 helloworld 仓库
+git clone https://github.com/fw876/helloworld.git
+# 从克隆的仓库中复制需要的目录
+cp -rf helloworld/shadowsocks-libev feeds/small/shadowsocks-libev
+rm -rf helloworld
 
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.99.2/g' package/base-files/files/bin/config_generate
