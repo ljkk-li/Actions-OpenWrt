@@ -14,6 +14,7 @@
 rm -rf feeds/packages/lang/golang
 rm -rf feeds/packages/lang/node
 rm -rf feeds/luci/themes/luci-theme-argon
+rm -rf feeds/smpackage/{base-files,dnsmasq,firewall*,fullconenat,libnftnl,nftables,ppp,opkg,ucl,upx,vsftpd*,miniupnpd-iptables,wireless-regdb}
 
 
 #添加额外软件包
