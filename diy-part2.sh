@@ -20,6 +20,13 @@ git clone https://github.com/sbwml/packages_lang_golang -b 25.x feeds/packages/l
 git clone https://github.com/sbwml/feeds_packages_lang_node-prebuilt -b packages-24.10 feeds/packages/lang/node 
 git clone -b 18.06 https://github.com/jerrykuku/luci-theme-argon package/lean/luci-theme-argon
 
+# 克隆 kenzok8-packages 仓库
+git clone --depth=1 https://github.com/kenzok8/small-package.git kenzok8-packages
+cp -rf kenzok8-packages/alist package/alist
+cp -rf kenzok8-packages/luci-app-alist package/luci-app-alist
+cp -rf kenzok8-packages/luci-app-ikoolproxy package/luci-app-ikoolproxy
+rm -rf kenzok8-packages
+
 # Modify default IP
 sed -i 's/192.168.1.1/192.168.99.2/g' package/base-files/files/bin/config_generate
 
